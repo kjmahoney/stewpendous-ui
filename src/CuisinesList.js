@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { getRandomRecipe } from "./api";
 
 const CuisinesArray = [
   { name: "american" },
@@ -9,19 +10,8 @@ const CuisinesArray = [
 
 const CuisinesList = () => {
   const handleClick = async (e) => {
-    const data = { cuisine: e.target.value };
-    const headers = {
-      "Content-Type": "application/json",
-    };
-
-    const response = await fetch("http://localhost:8000/api/recipes/", {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(data),
-    });
-
-    const json = await response.json();
-    console.log(json);
+    const response = await getRandomRecipe(e.target.value);
+    console.log(response);
   };
 
   return CuisinesArray.map((cuisine, index) => {
