@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { getRandomRecipe } from "./api";
 import { CuisinesArray } from "./data/CuisineTypes";
 
-const CuisinesList = () => {
+const CuisinesList = ({ setRecipeData }) => {
   const handleClick = async (e) => {
     const response = await getRandomRecipe(e.target.value);
+    setRecipeData(response);
   };
 
   return CuisinesArray.map((cuisine, index) => {
