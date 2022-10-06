@@ -11,5 +11,8 @@ export const getRandomRecipe = async (cuisine) => {
   });
 
   const json = await response.json();
-  return json;
+  const index = Math.floor(Math.random() * json.to);
+  const recipe = json.hits[index];
+
+  return recipe.recipe;
 };
