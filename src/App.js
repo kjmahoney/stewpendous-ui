@@ -25,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <h1>StewPendous!</h1>
+      <p>Stewpidly good stew recipes from around the world</p>
       <CuisinesList setRecipeData={setRecipeData} />
       <Result recipe={recipeData} />
     </div>
