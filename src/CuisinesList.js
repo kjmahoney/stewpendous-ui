@@ -2,11 +2,7 @@ import { getRandomRecipe } from "./api";
 import { CuisinesArray } from "./data/CuisineTypes";
 import styles from "./CuisinesList.module.scss";
 
-const Cuisines = ({ setRecipeData }) => {
-  const handleClick = async (e) => {
-    const response = await getRandomRecipe(e.target.value);
-    setRecipeData(response);
-  };
+const Cuisines = ({ handleClick }) => {
   return CuisinesArray.map((cuisine, index) => {
     return (
       <button
@@ -21,10 +17,15 @@ const Cuisines = ({ setRecipeData }) => {
   });
 };
 
-const CuisinesList = () => {
+const CuisinesList = ({ setRecipeData }) => {
+  const handleClick = async (e) => {
+    const response = await getRandomRecipe(e.target.value);
+    setRecipeData(response);
+  };
+
   return (
     <div className={styles.container}>
-      <Cuisines />
+      <Cuisines handleClick={handleClick} />
     </div>
   );
 };

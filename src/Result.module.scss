@@ -9,11 +9,20 @@
 
 .img {
     border: 2px solid $color-peach;
-    width: 90%;
+    width: 100%;
     border-radius: 5px;
+    max-width: 300px;
+    object-fit: cover;
 }
 
 .label {
     color: $color-apple;
     font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.caption {
+    color: $color-peach;
+    margin: 0;
+    text-transform: capitalize;
 }

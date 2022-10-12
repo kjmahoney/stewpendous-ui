@@ -10,7 +10,7 @@ function App() {
 
   const fetchData = async () => {
     const initialCuisine = getRandomCuisine();
-    const response = await mockGetRandomRecipe(
+    const response = await getRandomRecipe(
       encodeURIComponent(initialCuisine.name)
     );
     setRecipeData(response);
