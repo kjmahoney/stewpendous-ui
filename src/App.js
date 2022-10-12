@@ -1,31 +1,31 @@
 import { useEffect, useState } from "react";
 import CuisinesList from "./CuisinesList";
 import Result from "./Result";
-import { getRandomRecipe } from "./api";
+import { getRandomRecipe, mockGetRandomRecipe } from "./api";
 import { getRandomCuisine } from "./data/CuisineTypes";
-import "./App.css";
+import styles from "./App.module.scss";
 
 function App() {
   const [recipeData, setRecipeData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const initialCuisine = getRandomCuisine();
-      const response = await getRandomRecipe(
-        encodeURIComponent(initialCuisine.name)
-      );
+  const fetchData = async () => {
+    const initialCuisine = getRandomCuisine();
+    const response = await mockGetRandomRecipe(
+      encodeURIComponent(initialCuisine.name)
+    );
+    setRecipeData(response);
+  };
 
-      setRecipeData(response);
-    };
+  useEffect(() => {
     fetchData();
   }, []);
 
-  console.log(recipeData);
-
   return (
-    <div className="App">
-      <h1>StewPendous!</h1>
-      <p>Stewpidly good stew recipes from around the world</p>
+    <div className={styles.root}>
+      <h1 className={styles.header}>StewPendous!</h1>
+      <p className={styles.caption}>
+        Stewpidly good stew recipes from around the world
+      </p>
       <CuisinesList setRecipeData={setRecipeData} />
       <Result recipe={recipeData} />
     </div>

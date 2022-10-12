@@ -1,0 +1,19 @@
+@import "variables";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 24px 12px;
+
+}
+
+.header {
+  color: $color-apple;
+  margin: 0 0 16px;
+}
+
+.caption {
+  color: $color-coral;
+  margin: 0 0 16px;
+}

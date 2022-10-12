@@ -1,0 +1,19 @@
+@import "variables";
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.img {
+    border: 2px solid $color-peach;
+    width: 90%;
+    border-radius: 5px;
+}
+
+.label {
+    color: $color-apple;
+    font-size: 20px;
+}
